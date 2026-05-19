@@ -120,7 +120,7 @@ neo_kenya %>% filter(wt_now >0) %>% select(wt_now) %>% view() #Some weight are i
 #Those that weigh less than 100 (considering the lowest possible value for kg which is around 0.1 kg), must be multiplied by 1,000. This is because they should be in kilogram.
 neo_kenya = neo_kenya %>%
   mutate(Q48WEIGH = if_else(wt_now < 0, NA, wt_now)) %>% #There are some values that fall below 0, this should be converted into NA.
-  mutate(Q48WEIGH = if_else(Q48WEIGH >= 100 & !is.na(Q48WEIGH), Q48WEIGH / 1000, Q48WEIGH)) #Converting those with KG to grams.
+  mutate(Q48WEIGH = if_else(Q48WEIGH >= 100 & !is.na(Q48WEIGH), Q48WEIGH / 1000, Q48WEIGH)) #Converting those with grams to KG.
 
 
 #Setting the lower and upper limit for the weight.
